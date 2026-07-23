@@ -132,3 +132,39 @@ window.addEventListener("resize", () => {
         menuToggle.setAttribute("aria-expanded", "false");
     }
 });
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+    emailjs.init({
+        publicKey: "Fv6BaIKOUzYvRokEY"
+    });
+
+    contactForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const submitButton = document.getElementById("submit-button");
+        const formStatus = document.getElementById("form-status");
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+        formStatus.textContent = "";
+
+        try {
+            await emailjs.sendForm(
+    "service_ks810gw",
+    "template_9lrb9ag",
+    contactForm
+);
+
+            window.location.href = "/success.html";
+        } catch (error) {
+            console.error("EmailJS error:", error);
+
+            formStatus.textContent =
+                "Sorry, your message could not be sent. Please try again.";
+
+            submitButton.disabled = false;
+            submitButton.textContent = "Request My Free Quote";
+        }
+    });
+}
