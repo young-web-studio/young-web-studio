@@ -1765,3 +1765,21 @@ header {
         font-size: 1.7rem;
     }
 }
+/* ================= EARLY CLIENT SECTION ================= */
+
+.early-client-grid .testimonial-card {
+    text-align: left;
+}
+
+.early-client-grid .testimonial-card h3 {
+    margin: 18px 0 12px;
+}
+
+.early-client-grid .testimonial-card p {
+    margin: 0;
+}
+
+.early-client-cta {
+    margin-top: 40px;
+    text-align: center;
+}
